@@ -23,10 +23,12 @@ The original version ResNets-v1 were proposed by:
 [1] Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun
     Deep Residual Learning for Image Recognition. arXiv:1512.03385
 """
+# 引入旧版本的absolute_import
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
+# 调用已写好的函数，不需要重复写
 import functools
 from six.moves import range
 import tensorflow as tf
@@ -41,11 +43,12 @@ _DEFAULT_MULTI_GRID = [1, 1, 1]
 _DEFAULT_MULTI_GRID_RESNET_18 = [1, 1]
 
 
+# 残差块
 @slim.add_arg_scope
 def bottleneck(inputs,
-               depth,
-               depth_bottleneck,
-               stride,
+               depth, #通道数
+               depth_bottleneck,# 每个模块的数量
+               stride, # 决定是否下采样
                unit_rate=1,
                rate=1,
                outputs_collections=None,
